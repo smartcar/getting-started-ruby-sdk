@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/smartcar/ruby-sdk
-  revision: e245a8273e38538479f4cfb1dc3069c73f336c0a
-  specs:
-    smartcar (0.1.1)
-      oauth2 (~> 1.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -172,6 +165,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    smartcar (0.1.1)
+      oauth2 (~> 1.4)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -219,7 +214,7 @@ DEPENDENCIES
   rails (~> 5.2.0)
   sass-rails (~> 5.0)
   selenium-webdriver
-  smartcar!
+  smartcar (>= 0.1.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
