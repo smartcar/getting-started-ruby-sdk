@@ -1,0 +1,17 @@
+<h1>Found <%= @vehicles.size %> connected cars !</h1>
+<hr/>
+<div style="font-size: x-large">
+  <% @vehicles.each do |vehicle|%>
+    <hr/>
+    <div>
+      Vehicle Info : <%= "#{vehicle.year} - #{vehicle.make} #{vehicle.model}"  %>
+      <br/><br/>
+      VIN: <%= vehicle.vin %>
+      <br/><br/>
+      Odometer Reading : <%= vehicle.odometer.distance.floor %> miles
+      <br/><br/>
+    </div>
+    <hr/>
+  <% end %>
+  <hr/>
+</div>
