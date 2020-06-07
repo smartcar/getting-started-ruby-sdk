@@ -20,7 +20,7 @@ $ git clone https://github.com/smartcar/getting-started-ruby-sdk.git
 $ cd getting-started-ruby-sdk
 ```
 
-**Note:** This app was built on ruby 2.7 and Rails 5.2.
+**Note:** This app was built on ruby 2.7 and Rails 6.0.3.1.
 
 To install the required dependencies and run this Rails app -
 ```bash
