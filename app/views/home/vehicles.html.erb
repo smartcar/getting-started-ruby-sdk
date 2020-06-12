@@ -4,7 +4,7 @@
   <% @vehicles.each do |vehicle|%>
     <hr/>
     <div>
-      Vehicle Info : <%= "#{vehicle.year} - #{vehicle.make} #{vehicle.model}"  %>
+      Vehicle Info : <%= "#{vehicle.vehicle_attributes.year} - #{vehicle.vehicle_attributes.make} #{vehicle.vehicle_attributes.model}"  %>
       <br/><br/>
       VIN: <%= vehicle.vin %>
       <br/><br/>

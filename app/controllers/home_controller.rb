@@ -3,7 +3,7 @@ class HomeController < ActionController::Base
   end
 
   def login
-    options = {test_mode: true,scope: ["required:read_odometer","required:read_vin","required:read_vehicle_info"]}
+    options = {test_mode: true,scope: ["required:read_odometer","required:read_vin","required:read_vehicle_info", "required:control_charge"]}
     url = Smartcar::Oauth.authorization_url(options)
     redirect_to url
   end
