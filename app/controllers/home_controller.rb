@@ -1,15 +1,18 @@
 class HomeController < ActionController::Base
+  @@client = Smartcar::Oauth.new({
+    test_mode: true,
+    scope: ["required:read_odometer","required:read_vin","required:read_vehicle_info", "required:control_charge"]
+  })
   def index
   end
 
   def login
-    options = {test_mode: true,scope: ["required:read_odometer","required:read_vin","required:read_vehicle_info", "required:control_charge"]}
-    url = Smartcar::Oauth.authorization_url(options)
+    url = @@client.authorization_url
     redirect_to url
   end
 
   def exchange
-    session['token_hash'] = Smartcar::Oauth.get_token(params[:code])
+    session['token_hash'] = @@client.get_token(params[:code])
     redirect_to '/vehicles'
   end
 
