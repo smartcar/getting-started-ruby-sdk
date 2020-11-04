@@ -20,9 +20,9 @@ get "/exchange" do
 end
 
 get "/vehicle" do
-  # TODO: Request Step 2: Get vehicle ids
+  # TODO: Request Step 2a: Get vehicle ids
 
-  # TODO: Request Step 3: Create a vehicle
+  # TODO: Request Step 2b: Create a vehicle
 
-  # TODO: Request Step 4: Make a request to Smartcar API
+  # TODO: Request Step 2c: Make a request to Smartcar API for the vehicle
 end
