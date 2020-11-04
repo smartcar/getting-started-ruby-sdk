@@ -27,7 +27,5 @@ get "/vehicle" do
   vehicle_ids =  Smartcar::Vehicle.all_vehicle_ids(token: @@token)
   vehicle = Smartcar::Vehicle.new(token: @@token, id: vehicle_ids.first)
   vehicle_attributes = vehicle.vehicle_attributes
-  %I(id make model year).each_with_object({}) do |item, attributes|
-    attributes[item] = vehicle_attributes.send(item)
-  end.to_json
+  vehicle_attributes.to_hash.slice(*%I(id make model year)).to_json
 end
