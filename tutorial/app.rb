@@ -7,10 +7,10 @@ set :port, 8000
 # global variable to store the token
 @@token = ''
 
-# TODO: Authorization Step 1a: Create the Smartcar client object
+# TODO: Authorization Step 1a: Initialize the Smartcar object
 
 get "/login" do
-  # TODO: Authorization Step 1b: Launch Smartcar authentication dialog
+  # TODO: Authorization Step 1b: Launch the authorization flow
 end
 
 get "/exchange" do
