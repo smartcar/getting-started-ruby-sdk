@@ -25,7 +25,7 @@ $ cd getting-started-ruby-sdk/app
 To install the required dependencies and run this Sinatra app -
 ```bash
 $ bundle install
-$ ruby app.rb
+$ bundle exec ruby app.rb
 ```
 
 Once your server is up and running, you can authenticate your vehicle. In our current set up, we are using Smartcar's [test mode](https://smartcar.com/docs/guides/testing/), so you can log in with any username and password.
