@@ -1,5 +1,5 @@
-require "sinatra"
-require "smartcar"
+require 'sinatra'
+require 'smartcar'
 
 # Setting default port to 3000
 set :port, 8000
@@ -8,24 +8,23 @@ set :port, 8000
 @@token = ''
 
 # global variable to store the client
-@@client = Smartcar::Oauth.new({
-  test_mode: true,
-  scope: ["required:read_vehicle_info"]
-})
+@@client = Smartcar::AuthClient.new({
+                                 test_mode: true,
+                               })
 
-get "/login" do
-  redirect @@client.authorization_url
+get '/login' do
+  redirect @@client.get_auth_url(['required:read_vehicle_info'])
 end
 
-get "/exchange" do
+get '/exchange' do
   code = params[:code]
-  @@token = @@client.get_token(code)[:access_token]
-  "OK"
+  @@token = @@client.exchange_code(code)[:access_token]
+  'OK'
 end
 
-get "/vehicle" do
-  vehicle_ids =  Smartcar::Vehicle.all_vehicle_ids(token: @@token)
+get '/vehicle' do
+  vehicle_ids = Smartcar.get_vehicles(token: @@token).vehicles
   vehicle = Smartcar::Vehicle.new(token: @@token, id: vehicle_ids.first)
-  vehicle_attributes = vehicle.vehicle_attributes
-  vehicle_attributes.to_hash.slice(*%I(id make model year)).to_json
+  vehicle_attributes = vehicle.attributes
+  vehicle_attributes.to_h.slice(*%I[id make model year]).to_json
 end
