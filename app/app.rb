@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra'
 require 'smartcar'
 
@@ -9,8 +11,8 @@ set :port, 8000
 
 # global variable to store the client
 @@client = Smartcar::AuthClient.new({
-                                 mode: "test",
-                               })
+                                      mode: 'test'
+                                    })
 
 get '/login' do
   redirect @@client.get_auth_url(['required:read_vehicle_info'])
