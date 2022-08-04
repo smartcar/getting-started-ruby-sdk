@@ -9,8 +9,8 @@ set :port, 8000
 
 # global variable to store the client
 @@client = Smartcar::AuthClient.new({
-                                 test_mode: true,
-                               })
+                                      mode: 'test'
+                                    })
 
 get '/login' do
   redirect @@client.get_auth_url(['required:read_vehicle_info'])
@@ -19,7 +19,7 @@ end
 get '/exchange' do
   code = params[:code]
   @@token = @@client.exchange_code(code)[:access_token]
-  'OK'
+  redirect '/vehicle'
 end
 
 get '/vehicle' do
