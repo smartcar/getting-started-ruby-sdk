@@ -20,7 +20,7 @@ $ git clone https://github.com/smartcar/getting-started-ruby-sdk.git
 $ cd getting-started-ruby-sdk/app
 ```
 
-**Note:** This app was built on ruby 2.7
+**Note:** This app is compatible with 2.7 and above
 
 To install the required dependencies and run this Sinatra app -
 ```bash
