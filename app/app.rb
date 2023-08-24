@@ -13,7 +13,7 @@ $client = Smartcar::AuthClient.new({
                                     })
 
 get '/login' do
-  redirect $client.get_auth_url(['required:read_vehicle_info'])
+  redirect $client.get_auth_url(['required:read_vehicle_info', 'required:read_security'])
 end
 
 get '/exchange' do
@@ -27,4 +27,16 @@ get '/vehicle' do
   vehicle = Smartcar::Vehicle.new(token: $token, id: vehicle_ids.first)
   vehicle_attributes = vehicle.attributes
   vehicle_attributes.to_h.slice(*%I[id make model year]).to_json
+end
+
+get '/connections' do
+  amt = ENV['SMARTCAR_APPLICATION_MANAGEMENT_TOKEN']
+  if amt
+    connections = Smartcar.get_connections(amt: amt)
+    connections_json = JSON.generate(connections)
+    connections_string = connections_json.to_s
+    connections_json
+  else
+    'Application management token not set'
+  end
 end
