@@ -12,6 +12,7 @@ Then, we can set these as environment variables -
 $ export SMARTCAR_CLIENT_ID=<your-client-id>
 $ export SMARTCAR_CLIENT_SECRET=<your-client-secret>
 $ export SMARTCAR_REDIRECT_URI=http://localhost:8000/exchange
+$ export SMARTCAR_APPLICATION_MANAGEMENT_TOKEN=<your-amt>
 ```
 
 Make sure you have cloned this repo -
