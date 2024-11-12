@@ -9,7 +9,7 @@ $token = ''
 
 # global variable to store the client
 $client = Smartcar::AuthClient.new({
-                                      mode: 'test'
+                                      mode: 'simulated'
                                     })
 
 get '/login' do
